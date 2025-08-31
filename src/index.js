@@ -1,5 +1,11 @@
+import createHero from "./hero.js";
 import "./style.css"
 
+const content = document.getElementById("content");
+content.classList.add("slideshow-container")
 
-console.log("Hello world");
-console.log("Jandel Inson");
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    content.appendChild(createHero());
+})
+
