@@ -1,4 +1,5 @@
 import createHero from "./hero.js";
+import navHandler from "./nav-handler.js";
 import "./style.css"
 
 const content = document.getElementById("content");
@@ -9,3 +10,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
     content.appendChild(createHero());
 })
 
+navHandler();
