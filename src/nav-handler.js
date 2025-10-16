@@ -1,16 +1,23 @@
 export default function navHandler() {
-  const nav = document.querySelector(".nav-bar");
+  // nav-handler.js
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll('a[href^="#"]');
 
-  nav.addEventListener("click", (e) => {
-    // make sure user clicked a link
-    if (e.target.tagName === "A") {
-      e.preventDefault(); // stop anchor jump
+  navLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // we'll handle scrolling
 
-      console.log("Clicked nav link:", e.target.textContent);
+      const targetId = link.getAttribute("href");
+      const targetEl = document.querySelector(targetId);
 
-      // optional: use dataset attribute to identify which page
-      const page = e.target.dataset.page;
-      console.log("Navigate to:", page);
-    }
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // If the element is not yet in DOM, give a helpful message:
+        console.warn(`Target not found for ${targetId}. If created dynamically, ensure it has that id.`);
+      }
+    });
   });
+});
+
 }
