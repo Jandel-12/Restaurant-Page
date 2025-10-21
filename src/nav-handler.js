@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   navLinks.forEach(link => {
     link.addEventListener("click", (e) => {
-      e.preventDefault(); // we'll handle scrolling
+      e.preventDefault(); 
 
       const targetId = link.getAttribute("href");
       const targetEl = document.querySelector(targetId);
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
-        // If the element is not yet in DOM, give a helpful message:
+        
         console.warn(`Target not found for ${targetId}. If created dynamically, ensure it has that id.`);
       }
     });
